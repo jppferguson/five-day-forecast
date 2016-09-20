@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   context: path.resolve('source'),
   entry: [
-    "./app"
+    "./client"
   ],
   output: {
     path: path.resolve('assets/js/'),
