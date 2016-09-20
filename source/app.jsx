@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Styles = require('./app.scss');
 
 var Timer = React.createClass({
   getInitialState: function() {
@@ -17,7 +18,7 @@ var Timer = React.createClass({
   render: function() {
 
     return (
-      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+      <div className="countdown">Seconds Elapsed: {this.state.secondsElapsed}</div>
     );
   }
 });
