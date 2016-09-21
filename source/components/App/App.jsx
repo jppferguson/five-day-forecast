@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'whatwg-fetch';
+import moment from 'moment';
 
 import Header from '../Header'
 import Footer from '../Footer'
@@ -17,7 +18,7 @@ export default class App extends Component {
       error: false,
       city: null,
       loading: true,
-      list: []
+      days: []
     }
   }
 
@@ -32,11 +33,7 @@ export default class App extends Component {
       return response.json()
     }).then(function(json) {
       if(json.list && json.list.length > 0) {
-        _this.setState({
-          city: json.city.name,
-          list: json.list,
-          loading: false
-        });
+        _this.processListToDays(json)
       } else {
         _this.setState({
           error: true,
@@ -52,12 +49,45 @@ export default class App extends Component {
     })
   }
 
+
+  /* TODO: Refactor this, it's terrible.
+   * */
+
+  processListToDays(json) {
+    const daysObj = {};
+    const days = [];
+    var dayKey;
+    for (let i = 0; i < json.list.length; i++) {
+      dayKey = moment.unix(json.list[i].dt).startOf('day').format('dddd, MMMM D YYYY');
+      if(typeof daysObj[dayKey] === 'undefined') {
+        daysObj[dayKey] = {
+          id: dayKey,
+          title: dayKey,
+          list: []
+        }
+      }
+      daysObj[dayKey].list.push(json.list[i]);
+    }
+
+    for (var property in daysObj) {
+      if (daysObj.hasOwnProperty(property)) {
+        days.push(daysObj[property])
+      }
+    }
+
+    this.setState({
+      city: json.city.name,
+      days: days,
+      loading: false
+    });
+  }
+
   render() {
 
     return (
       <div className="container">
         <Header city={this.state.city} />
-        <Forecast list={this.state.list} isHidden={this.state.loading || this.state.error} />
+        <Forecast days={this.state.days} isHidden={this.state.loading || this.state.error} />
         <Error isHidden={!this.state.error} />
         <Loading isHidden={!this.state.loading} />
         <Footer />

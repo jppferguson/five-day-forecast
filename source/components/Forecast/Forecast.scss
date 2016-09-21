@@ -1,13 +1,50 @@
 .Forecast {
+  .title {
+    text-align: center;
+
+    h3 {
+      background: #333;
+      color: #eee;
+      display: inline-block;
+      font-weight: bold;
+      padding: 5px 20px;
+      text-transform: uppercase;
+    }
+  }
+
   &.hidden {
     display: none;
   }
 }
+
+.ForecastDay {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 .ForecastItem {
   float: left;
   overflow: hidden;
   text-align: center;
-  margin: 30px;
-  width: 100px;
+  width: 12.5%;
   height: 300px;
+
+  .time {
+    border-bottom: solid 1px #ccc;
+    padding: 0 0 .5em;
+    margin: 0 0 .5em;
+  }
+
+  .temp {
+    margin: .5em 0 0;
+  }
+
+  small {
+    color: #777;
+    font-size: 75%;
+  }
+
+  .icon {
+    margin: 10px 0;
+  }
 }

@@ -10,15 +10,21 @@ a {
   color: #3be;
 }
 
+header {
+  padding: 3em;
+  text-align: center;
+}
+
 footer {
+  color: #777;
   clear: both;
   font-size: 0.75em;
   text-align: center;
-  padding-top: 5em;
+  padding: 3em;
   position: relative;
 
   &:before {
-    border-top: solid 1px #999;
+    border-top: solid 1px #ddd;
     content: '';
     position: absolute;
     top: 2em;

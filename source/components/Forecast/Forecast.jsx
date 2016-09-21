@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import moment from 'moment';
+import './Forecast.scss';
 
-import ForecastItem from './ForecastItem';
+import ForecastDay from './ForecastDay';
 
 export default class Forecast extends Component {
 
@@ -20,8 +22,8 @@ export default class Forecast extends Component {
     return (
       <div className={forcastClass}>
 
-        {this.props.list.map(function(item) {
-           return <ForecastItem key={item.dt_txt} data={item}/>;
+        {this.props.days.map(function(item) {
+           return <ForecastDay key={item.id} dayItems={item.list} title={item.title} />;
         })}
 
       </div>
