@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 
 import Header from '../Header'
 import Footer from '../Footer'
+import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 import Forecast from '../Forecast/Forecast'
 
@@ -30,11 +31,18 @@ export default class App extends Component {
     this.serverRequest = fetch(config.api.endpoint).then(function(response) {
       return response.json()
     }).then(function(json) {
-      _this.setState({
-        city: json.city.name,
-        list: json.list,
-        loading: false
-      });
+      if(json.list && json.list.length > 0) {
+        _this.setState({
+          city: json.city.name,
+          list: json.list,
+          loading: false
+        });
+      } else {
+        _this.setState({
+          error: true,
+          loading: false
+        });
+      }
     }).catch(function(ex) {
       console.log('parsing failed', ex)
       _this.setState({
@@ -50,7 +58,8 @@ export default class App extends Component {
       <div className="container">
         <Header city={this.state.city} />
         <Forecast list={this.state.list} isHidden={this.state.loading || this.state.error} />
-        <Loading list={this.state.list} isHidden={!this.state.loading} />
+        <Error isHidden={!this.state.error} />
+        <Loading isHidden={!this.state.loading} />
         <Footer />
       </div>
     );

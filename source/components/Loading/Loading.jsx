@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import './Loading.scss';
 
 export default class Loading extends Component {
 
