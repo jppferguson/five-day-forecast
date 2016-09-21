@@ -8,6 +8,8 @@
     "build": "npm run clean && webpack",
     "build:prod": "npm run build -- --config webpack.config-prod.js",
     "clean": "rm -rf dist",
+    "heroku-postbuild": "npm run build:prod",
+    "start": "node ./source/server",
     "test": "karma start"
   },
   "author": "Jamie Ferguson",
@@ -42,6 +44,7 @@
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "react": "15.3.2",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "15.3.2",
