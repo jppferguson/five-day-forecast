@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
 
 import ForecastItem from './ForecastItem';
 
@@ -10,8 +11,14 @@ export default class Forecast extends Component {
   }
 
   render() {
+
+    let forcastClass = classNames({
+      'Forecast': true,
+      'hidden': this.props.isHidden
+    });
+
     return (
-      <div>
+      <div className={forcastClass}>
 
         {this.props.list.map(function(item) {
            return <ForecastItem key={item.dt_txt} data={item}/>;

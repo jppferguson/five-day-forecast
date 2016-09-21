@@ -5,9 +5,9 @@ import TestUtils from 'react-addons-test-utils'
 
 const { describe, it } = global
 
-function renderApp () {
+function renderApp (props = {}) {
   const renderer = TestUtils.createRenderer()
-  renderer.render(<App />)
+  renderer.render(<App {...props} />)
   return renderer.getRenderOutput()
 }
 

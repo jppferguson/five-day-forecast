@@ -1,3 +1,8 @@
+.Forecast {
+  &.hidden {
+    display: none;
+  }
+}
 .ForecastItem {
   float: left;
   overflow: hidden;
