@@ -29,6 +29,7 @@
     "mocha": "^3.0.2",
     "moment": "^2.15.0",
     "node-sass": "^3.10.0",
+    "owfont": "git+https://github.com/websygen/owfont.git",
     "phantomjs": "^2.1.7",
     "phantomjs-polyfill": "0.0.2",
     "requirejs": "^2.3.2",

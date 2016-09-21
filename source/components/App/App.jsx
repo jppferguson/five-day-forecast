@@ -12,6 +12,7 @@ export default class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      city: null,
       list: []
     }
   }
@@ -27,6 +28,7 @@ export default class App extends Component {
       return response.json()
     }).then(function(json) {
       _this.setState({
+        city: json.city.name,
         list: json.list
       });
     }).catch(function(ex) {
@@ -38,7 +40,7 @@ export default class App extends Component {
 
     return (
       <div className="container">
-        <Header />
+        <Header city={this.state.city} />
         <Forecast list={this.state.list} />
         <Footer />
       </div>
