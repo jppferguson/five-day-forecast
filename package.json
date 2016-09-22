@@ -1,7 +1,7 @@
 {
   "name": "five-day-forecast",
   "version": "0.0.1",
-  "description": "",
+  "description": "The forecast. For five days.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
@@ -19,6 +19,8 @@
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.25.0",
     "expect.js": "^0.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "karma": "^1.3.0",
