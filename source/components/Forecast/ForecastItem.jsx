@@ -28,7 +28,7 @@ export default class ForecastItem extends Component {
         <i className={this.state.classNames}></i>
         <h4 className="temp">{this.props.data.weather[0].main}</h4>
         <small>{this.props.data.weather[0].description}</small>
-        <div className="temp">{Math.round(this.props.data.main.temp)}º</div>
+        <div className="temp">{Math.round(this.props.data.main.temp)}ºC</div>
       </div>
     );
   }
