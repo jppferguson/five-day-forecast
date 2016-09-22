@@ -1,6 +1,6 @@
 # Five Day Forecast
 
-[The (Edinburgh) forecast.](https://fivedayforecast.herokuapp.com/) For five days.
+[The (Edinburgh) forecast.](http://fivedayforecast.herokuapp.com/) For five days.
 
 [![dependency Status](https://img.shields.io/david/jppferguson/five-day-forecast.svg?style=flat)](https://david-dm.org/jppferguson/five-day-forecast#info=devDependencies) [![devDependency Status](https://img.shields.io/david/dev/jppferguson/five-day-forecast.svg?style=flat)](https://david-dm.org/jppferguson/five-day-forecast#info=devDependencies)
 
